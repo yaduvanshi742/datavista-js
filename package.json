@@ -1,0 +1,22 @@
+{
+  "name": "datavista-js",
+  "version": "1.0.0",
+  "description": "A local-first JavaScript data explorer for importing CSV and JSON files, cleaning data, building charts, and exporting insights.",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 5173",
+    "check": "node scripts/check-syntax.js",
+    "test": "node tests/run-tests.js"
+  },
+  "keywords": [
+    "javascript",
+    "csv",
+    "json",
+    "data-visualization",
+    "dashboard",
+    "indexeddb",
+    "pwa"
+  ],
+  "author": "Yadhuvanshi",
+  "license": "MIT"
+}
