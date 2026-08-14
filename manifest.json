@@ -1,0 +1,16 @@
+{
+  "name": "DataVista JS",
+  "short_name": "DataVista",
+  "description": "A local-first CSV and JSON data explorer built with JavaScript.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "public/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
