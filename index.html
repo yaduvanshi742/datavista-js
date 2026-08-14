@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DataVista JS is a local-first data explorer for CSV and JSON files." />
+  <meta name="theme-color" content="#2563eb" />
+  <title>DataVista JS</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="public/icons/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="src/styles/main.css" />
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#dashboard" aria-label="DataVista dashboard">
+        <span class="brand-mark">DV</span>
+        <span>
+          <strong>DataVista</strong>
+          <small>Local data workspace</small>
+        </span>
+      </a>
+
+      <nav class="nav-list" id="navList">
+        <a href="#dashboard" data-route="dashboard" class="nav-link active">Dashboard</a>
+        <a href="#datasets" data-route="datasets" class="nav-link">Datasets</a>
+        <a href="#insights" data-route="insights" class="nav-link">Insights</a>
+        <a href="#charts" data-route="charts" class="nav-link">Charts</a>
+        <a href="#settings" data-route="settings" class="nav-link">Settings</a>
+      </nav>
+
+      <div class="sidebar-card">
+        <p class="muted">Workspace</p>
+        <strong id="sidebarDatasetCount">0 datasets</strong>
+        <small id="sidebarStorageStatus">Saved locally</small>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="icon-button mobile-only" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
+        <div>
+          <p class="eyebrow">CSV and JSON explorer</p>
+          <h1 id="pageTitle">Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+          <label class="button primary file-trigger" for="fileInput">Import file</label>
+          <input id="fileInput" type="file" accept=".csv,.json,application/json,text/csv" hidden />
+          <button class="button ghost" id="sampleButton">Load sample</button>
+          <button class="icon-button" id="themeToggle" aria-label="Toggle theme">◐</button>
+        </div>
+      </header>
+
+      <section class="notice hidden" id="notice" role="status"></section>
+
+      <section class="page active" id="page-dashboard"></section>
+      <section class="page" id="page-datasets"></section>
+      <section class="page" id="page-insights"></section>
+      <section class="page" id="page-charts"></section>
+      <section class="page" id="page-settings"></section>
+    </main>
+  </div>
+
+  <dialog class="modal" id="importDialog">
+    <form method="dialog" class="modal-panel" id="importForm">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">Import dataset</p>
+          <h2 id="importFileName">Dataset details</h2>
+        </div>
+        <button class="icon-button" value="cancel" aria-label="Close modal">×</button>
+      </div>
+      <label class="field">
+        <span>Dataset name</span>
+        <input id="datasetNameInput" type="text" placeholder="Sales report" required />
+      </label>
+      <label class="field">
+        <span>Description</span>
+        <textarea id="datasetDescriptionInput" rows="3" placeholder="What does this dataset contain?"></textarea>
+      </label>
+      <div class="import-preview" id="importPreview"></div>
+      <div class="modal-actions">
+        <button class="button ghost" value="cancel" type="button" id="cancelImportButton">Cancel</button>
+        <button class="button primary" type="submit">Save dataset</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="src/app/main.js"></script>
+</body>
+</html>
